@@ -1,0 +1,45 @@
+<h5>Exemplos de Pipes</h5>
+
+<p>The time is {{today | date:'h:mm a z'}}</p>
+
+<p>Título: {{ livro.titulo | uppercase | lowercase  | camelCase }}</p> <!--| camelCase--> 
+
+<p>Estrelas: {{ livro.rating | number:'1.1-1' }}</p>
+
+<p>Páginas: {{ livro.numeroPaginas | number }}</p>
+
+<p>Preço: {{ livro.preco | currency:'BRL':true }}</p>
+
+<p>Data Lançamento: {{ livro.dataLancamento | date }}</p><!--:'dd-MMM-yyyy' -->
+
+<p>Url: <a href= "{{ livro.url }}">Link aqui!!</a> </p>
+
+<br>
+<p>Livro: {{ livro | json }}</p>
+
+<h5>Maneira correta de usar filtro nos projetos</h5>
+<input type="text" [(ngModel)]="filtro">
+
+
+<br>
+<input type="text" #novoValor>
+<button (click)="addCurso(novoValor.value)">Add Curso</button>
+
+
+<br>
+<br>
+<ul>
+    <li *ngFor="let liv of obterCursos()">
+        {{ liv }}
+    </li>
+</ul>
+<br>
+<br>
+<div>{{ obterCursos() }}</div>
+
+<br>
+<br>
+<h5>Curso Angular #48: Pipes: Async (assíncrono)</h5>
+<p>Com Pipe 'Promise' <span>json</span> : {{valorAsync | json }}</p>
+<p>Com Pipe 'Promise' <span>async</span> :{{valorAsync | async }}</p>
+<p>Com Pipe 'Observable'<span>async</span> :{{valorAsync2 | async }}</p>
